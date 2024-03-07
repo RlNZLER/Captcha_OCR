@@ -1,6 +1,10 @@
 from PIL import Image
+import pytesseract
 
-def remove_colors_except_gray(input_image_path, output_image_path):
+# Set the Tesseract executable path
+pytesseract.pytesseract.tesseract_cmd = r"C:\Program Files\Tesseract-OCR\tesseract.exe"
+
+def convert_to_binary(input_image_path, output_image_path):
     # Define the target gray color
     target_color = (128, 128, 128)
     tolerance = 30  # Tolerance for color matching
@@ -15,9 +19,9 @@ def remove_colors_except_gray(input_image_path, output_image_path):
     width, height = image.size
     
     # Create a new image with the same dimensions
-    result_image = Image.new("RGB", (width, height))
+    result_image = Image.new("L", (width, height))  # L mode for grayscale image
 
-    # Iterate over each pixel and retain only the ones with similar color to the target gray
+    # Iterate over each pixel and convert to black and white
     for x in range(width):
         for y in range(height):
             # Get the pixel color
@@ -25,18 +29,27 @@ def remove_colors_except_gray(input_image_path, output_image_path):
 
             # Check if the pixel color is within the tolerance range of the target gray color
             if all(abs(pixel_color[i] - target_color[i]) <= tolerance for i in range(3)):
-                # Pixel color is within tolerance, retain it
-                result_image.putpixel((x, y), pixel_color)
+                # Pixel color is within tolerance, set it to black
+                result_image.putpixel((x, y), 0)  # 0 for black
             else:
                 # Pixel color is not within tolerance, set it to white
-                result_image.putpixel((x, y), (255, 255, 255))
+                result_image.putpixel((x, y), 255)  # 255 for white
 
     # Save the modified image
     result_image.save(output_image_path)
+
+def recognize_text(image_path):
+    # Use pytesseract to perform OCR
+    text = pytesseract.image_to_string(Image.open(image_path))
+    return text
 
 if __name__ == "__main__":
     input_image_path = "test/captcha.jpeg"
     output_image_path = "result/captcha_processed.jpeg"
     
-    remove_colors_except_gray(input_image_path, output_image_path)
+    convert_to_binary(input_image_path, output_image_path)
     print("Image processing complete.")
+    
+    recognized_text = recognize_text(output_image_path)
+    print("Recognized Text:")
+    print(recognized_text)
