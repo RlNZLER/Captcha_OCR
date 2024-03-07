@@ -1,4 +1,4 @@
-from PIL import Image
+from PIL import Image, ImageFilter
 import pytesseract
 
 # Set the Tesseract executable path
@@ -34,7 +34,10 @@ def convert_to_binary(input_image_path, output_image_path):
             else:
                 # Pixel color is not within tolerance, set it to white
                 result_image.putpixel((x, y), 255)  # 255 for white
-
+                
+    # Apply erosion and dilation to remove noise
+    result_image = result_image.filter(ImageFilter.MedianFilter())
+    
     # Save the modified image
     result_image.save(output_image_path)
 
