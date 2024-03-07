@@ -4,7 +4,8 @@ import pytesseract
 # Set the Tesseract executable path
 pytesseract.pytesseract.tesseract_cmd = r"C:\Program Files\Tesseract-OCR\tesseract.exe"
 
-def convert_to_binary(input_image_path, output_image_path):
+def recognize_text(input_image_path):
+    output_image_path = "result/captcha_processed.jpeg"
     # Define the target gray color
     target_color = (128, 128, 128)
     tolerance = 30  # Tolerance for color matching
@@ -41,18 +42,11 @@ def convert_to_binary(input_image_path, output_image_path):
     # Save the modified image
     result_image.save(output_image_path)
 
-def recognize_text(image_path):
     # Use pytesseract to perform OCR
-    text = pytesseract.image_to_string(Image.open(image_path))
+    text = pytesseract.image_to_string(Image.open(output_image_path))
     return text
 
 if __name__ == "__main__":
     input_image_path = "test/captcha.jpeg"
-    output_image_path = "result/captcha_processed.jpeg"
-    
-    convert_to_binary(input_image_path, output_image_path)
-    print("Image processing complete.")
-    
-    recognized_text = recognize_text(output_image_path)
-    print("Recognized Text:")
-    print(recognized_text)
+    recognized_text = recognize_text(input_image_path)
+    print(f"Captcha: {recognized_text}")
