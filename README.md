@@ -40,9 +40,9 @@ This script processes CAPTCHA images to make them suitable for OCR and then extr
 
 | CAPTCHA Image | Processed Image | Extracted Text |
 |---------------|-----------------|----------------|
-| ![Captcha Image 1](test/captcha1.jpeg) | ![Processed Image 1](result/captcha1_processed.jpeg) | Text from Image 1 |
-| ![Captcha Image 2](test/captcha2.jpeg) | ![Processed Image 2](result/captcha2_processed.jpeg) | Text from Image 2 |
-| ![Captcha Image 3](test/captcha3.jpeg) | ![Processed Image 3](result/captcha3_processed.jpeg) | Text from Image 3 |
+| ![Captcha Image 1](test/captcha1.jpeg) | ![Processed Image 1](result/captcha1_processed.jpeg) | 724621 |
+| ![Captcha Image 2](test/captcha2.jpeg) | ![Processed Image 2](result/captcha2_processed.jpeg) | 144818 |
+| ![Captcha Image 3](test/captcha3.jpeg) | ![Processed Image 3](result/captcha3_processed.jpeg) | 687758 |
 
 
 ## Contributing
