@@ -10,7 +10,7 @@ This script processes CAPTCHA images to make them suitable for OCR and then extr
 
 1. Clone the repository:
     ```bash
-    git clone https://github.com/your-username/captcha-ocr.git
+    git clone https://github.com/RlNZLER/captcha_reader.git
     ```
 
 2. Install dependencies using pip:
