@@ -43,7 +43,8 @@ This script processes CAPTCHA images to make them suitable for OCR and then extr
 | ![Captcha Image 1](test/captcha1.jpeg) | ![Processed Image 1](result/captcha1_processed.jpeg) | 724621 |
 | ![Captcha Image 2](test/captcha2.jpeg) | ![Processed Image 2](result/captcha2_processed.jpeg) | 144818 |
 | ![Captcha Image 3](test/captcha3.jpeg) | ![Processed Image 3](result/captcha3_processed.jpeg) | 687758 |
-
+| ![Captcha Image 4](test/captcha4.jpeg) | ![Processed Image 4](result/captcha4_processed.jpeg) | 053842 |
+| ![Captcha Image 5](test/captcha5.jpeg) | ![Processed Image 5](result/captcha5_processed.jpeg) | 348068 |
 
 ## Contributing
 
