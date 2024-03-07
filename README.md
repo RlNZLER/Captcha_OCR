@@ -36,6 +36,15 @@ This script processes CAPTCHA images to make them suitable for OCR and then extr
 
 3. The processed images will be saved in the `result` directory, and the extracted text will be printed to the console.
 
+## Results
+
+| CAPTCHA Image | Processed Image | Extracted Text |
+|---------------|-----------------|----------------|
+| ![Captcha Image 1](test/captcha1.jpeg) | ![Processed Image 1](result/captcha1_processed.jpeg) | Text from Image 1 |
+| ![Captcha Image 2](test/captcha2.jpeg) | ![Processed Image 2](result/captcha2_processed.jpeg) | Text from Image 2 |
+| ![Captcha Image 3](test/captcha3.jpeg) | ![Processed Image 3](result/captcha3_processed.jpeg) | Text from Image 3 |
+
+
 ## Contributing
 
 Contributions are welcome! If you'd like to contribute to this project, please fork the repository and submit a pull request.
